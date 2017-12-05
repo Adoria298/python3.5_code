@@ -1,6 +1,6 @@
 # python3.5_code
 random python projects
 
-##Dependencies
+## Dependencies
 
     pip install colorama
