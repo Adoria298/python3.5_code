@@ -3,4 +3,4 @@ random python projects
 
 ##Dependencies
 
-''''pip install colorama
+    pip install colorama
