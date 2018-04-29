@@ -10,5 +10,6 @@ All code in this repository is designed for use with `python3` or `python3.5` on
 
 #### Tkinter (for most GUI projects)
 If not installed by default, use pip:
+
     pip install python-tk
     pip3 install python-tk
