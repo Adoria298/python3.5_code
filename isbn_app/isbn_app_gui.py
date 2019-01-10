@@ -1,7 +1,6 @@
 from isbn_app import *
 from tkinter import *
 from tkinter.ttk import *
-from tkinter import messagebox
 
 WINTITLE = "CheckGenISBN"
 
@@ -12,7 +11,7 @@ class ISBN_GUI(Frame):
         self.grid()
         self.master = master
 
-        self.isbn_mode = 10
+        self.isbn_mode = IntVar()
         
         self.create_widgets()
 
@@ -39,13 +38,13 @@ class ISBN_GUI(Frame):
         self.submit_btn.grid(column=0, row=2)
 
     def gen_isbn(self):
-        if self.isbn_mode == 10:
+        if self.isbn_mode.get() == 10:
             gen_func = gen_isbn_10_check_digit
-        elif self.isbn_mode == 13:
+        elif self.isbn_mode.get() == 13:
             gen_func = gen_isbn_13_check_digit
 
         self.isbn_incomplete = self.isbn_entry.get()
-        valid, reason = validate_isbn(self.isbn_incomplete, self.isbn_mode)
+        valid, reason = validate_isbn(self.isbn_incomplete, self.isbn_mode.get())
         if valid:
             self.checksum = str(gen_func(self.isbn_incomplete))
             messagebox.showinfo(WINTITLE, "checksum: " + self.checksum)
